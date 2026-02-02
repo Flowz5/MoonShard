@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Components")]
     public Rigidbody2D rb;
+    public Animator animator;
 
     [Header("Ground Detection")]
     public Transform groundCheck;
@@ -32,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
         }
+
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
     }
 
     void FixedUpdate()
